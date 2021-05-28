@@ -1,0 +1,37 @@
+kind: Service
+apiVersion: v1
+metadata:
+ name: external-postgres
+spec:
+ ports:
+ - port: 5432
+   targetPort: 5432
+---
+kind: Endpoints
+apiVersion: v1
+metadata:
+ name: external-postgres
+subsets:
+ - addresses:
+     - ip: 100.0.0.2
+   ports:
+     - port: 5432
+---     
+kind: Service
+apiVersion: v1
+metadata:
+ name: external-mongodb
+spec:
+ ports:
+ - port: 27017
+   targetPort: 27017
+---
+kind: Endpoints
+apiVersion: v1
+metadata:
+ name: external-mongodb
+subsets:
+ - addresses:
+     - ip: 100.0.0.2
+   ports:
+     - port: 27017     

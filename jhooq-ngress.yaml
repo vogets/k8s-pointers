@@ -1,0 +1,16 @@
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  name: jhooq-ingress
+  annotations:
+    kubernetes.io/ingress.class: traefik
+    traefik.frontend.rule.type: PathPrefixStrip
+spec:
+  rules:
+  - host: oam.cluster-01.company.com
+    http:
+      paths:
+      - path: /jhooq
+        backend:
+          serviceName: jhooq-springboot
+          servicePort: http

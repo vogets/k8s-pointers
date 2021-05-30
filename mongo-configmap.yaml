@@ -1,0 +1,9 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: products-mongo-config
+  namespace: default
+data:
+  mongo_user: postgres
+  mongo_password: Kites#123
+  mongo_uri: mongodb://mongo_user:mongo_password@external-mongodb/products?authSource=admin&authMechanism=SCRAM-SHA-1
